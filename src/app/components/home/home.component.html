@@ -1,0 +1,125 @@
+<mat-toolbar color="primary" class="toolbar">
+    <span class="toolbar-title">Gráficas en Tiempo Real</span>
+  </mat-toolbar>
+  
+  
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Temperaturas</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-grid-list cols="2" rowHeight="350px" gutterSize="16px">
+        <mat-grid-tile>
+          <div class="chart-container">
+            <h3>Temperatura Interna</h3>
+            <apx-chart *ngIf="chartOptions.chart"
+                       [series]="chartOptions.series!"
+                       [chart]="chartOptions.chart!"
+                       [labels]="chartOptions.labels!"
+                       [plotOptions]="chartOptions.plotOptions!"
+                       [fill]="chartOptions.fill!">
+            </apx-chart>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="chart-container">
+            <h3>Temperatura Externa</h3>
+            <apx-chart *ngIf="chartOptions.chart"
+                       [series]="chartOptions.series!"
+                       [chart]="chartOptions.chart!"
+                       [labels]="chartOptions.labels!"
+                       [plotOptions]="chartOptions.plotOptions!"
+                       [fill]="chartOptions.fill!">
+            </apx-chart>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+
+
+
+  
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Gráficas en Tiempo Real</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- Filtro de fechas -->
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha de inicio</mat-label>
+          <input matInput [matDatepicker]="startDatePicker" [formControl]="startDate" placeholder="Seleccione una fecha">
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha de fin</mat-label>
+          <input matInput [matDatepicker]="endDatePicker" [formControl]="endDate" placeholder="Seleccione una fecha">
+          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+  
+        <!-- Botón para aplicar el filtro -->
+        <button mat-raised-button color="primary" (click)="updateTemperatureChart()">Aplicar filtro</button>
+      </div>
+  
+      <!-- Gráficas -->
+      <div class="chart-container">
+        <h3>Temperatura</h3>
+        <apx-chart *ngIf="chartOptionsTemperatura.series"
+                   [series]="chartOptionsTemperatura.series"
+                   [chart]="chartOptionsTemperatura.chart!"
+                   [labels]="chartOptionsTemperatura.labels!"
+                   [plotOptions]="chartOptionsTemperatura.plotOptions!"
+                   [fill]="chartOptionsTemperatura.fill!">
+        </apx-chart>
+      </div>
+  
+      <div class="chart-container">
+        <h3>Humedad Relativa</h3>
+        <apx-chart *ngIf="chartOptionsHumedadRelativa.series"
+                   [series]="chartOptionsHumedadRelativa.series"
+                   [chart]="chartOptionsHumedadRelativa.chart!"
+                   [labels]="chartOptionsHumedadRelativa.labels!"
+                   [plotOptions]="chartOptionsHumedadRelativa.plotOptions!"
+                   [fill]="chartOptionsHumedadRelativa.fill!">
+        </apx-chart>
+      </div>
+  
+      <div class="chart-container">
+        <h3>Humedad Absoluta</h3>
+        <apx-chart *ngIf="chartOptionsHumedadAbsoluta.series"
+                   [series]="chartOptionsHumedadAbsoluta.series"
+                   [chart]="chartOptionsHumedadAbsoluta.chart!"
+                   [labels]="chartOptionsHumedadAbsoluta.labels!"
+                   [plotOptions]="chartOptionsHumedadAbsoluta.plotOptions!"
+                   [fill]="chartOptionsHumedadAbsoluta.fill!">
+        </apx-chart>
+      </div>
+  
+      <div class="chart-container">
+        <h3>Velocidad del Viento</h3>
+        <apx-chart *ngIf="chartOptionsVelocidadViento.series"
+                   [series]="chartOptionsVelocidadViento.series"
+                   [chart]="chartOptionsVelocidadViento.chart!"
+                   [labels]="chartOptionsVelocidadViento.labels!"
+                   [plotOptions]="chartOptionsVelocidadViento.plotOptions!"
+                   [fill]="chartOptionsVelocidadViento.fill!">
+        </apx-chart>
+      </div>
+  
+      <div class="chart-container">
+        <h3>Presión Barométrica</h3>
+        <apx-chart *ngIf="chartOptionsPresion.series"
+                   [series]="chartOptionsPresion.series"
+                   [chart]="chartOptionsPresion.chart!"
+                   [labels]="chartOptionsPresion.labels!"
+                   [plotOptions]="chartOptionsPresion.plotOptions!"
+                   [fill]="chartOptionsPresion.fill!">
+        </apx-chart>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  

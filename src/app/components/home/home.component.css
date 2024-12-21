@@ -1,0 +1,17 @@
+.chart-container {
+  margin-bottom: 30px;  /* Espacio entre cada gráfica */
+  text-align: center;   /* Centra el título y el gráfico */
+}
+
+mat-card-header {
+  background-color: #f1f1f1;
+}
+
+mat-card-title {
+  font-weight: bold;
+}
+
+apx-chart {
+  margin: 0 auto;
+  display: block;
+}
